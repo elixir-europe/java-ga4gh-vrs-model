@@ -31,10 +31,11 @@ import java.io.Serializable;
  * @author Dmitry Repchevsky
  * 
  * @param <K> CURIE implementation class
- * @param <L> RangeNumber implementation class
+ * @param <L> Countable implementation class
+ * @param <M> RangeNumber implementation class
  */
 
-public interface CopyNumber<K extends CURIE, L extends RangeNumber> 
+public interface CopyNumber<K extends CURIE, L extends Countable, M extends RangeNumber> 
         extends SystemicVariation, Serializable {
 
     final static String TYPE = "CopyNumber";
@@ -42,9 +43,9 @@ public interface CopyNumber<K extends CURIE, L extends RangeNumber>
     K getId();
     void setId(K id);
     
-    Countable getSubject();    
-    void setSubject(Countable subject);
+    L getSubject();    
+    void setSubject(L subject);
     
-    L getCopies();    
-    void setCopies(L copies);
+    M getCopies();    
+    void setCopies(M copies);
 }
